@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData } from "src/actions";
-import { getModes } from "src/selectors";
+import { fetchData, setMode, setStatus } from "src/actions";
+import { getModes, getMode, getStatus } from "src/selectors";
+import { Field } from "src/components/Field/Field.js";
 import "./App.css";
 
 const App = () => {
   const dispatch = useDispatch();
   const modes = useSelector(getModes);
+  const mode = useSelector(getMode);
+  const status = useSelector(getStatus);
   const options = [];
-  const [mode, setMode] = useState("");
 
   const handleChange = (event) => {
-    setMode(event.target.value);
+    dispatch(setMode(event.target.value));
   };
 
-  const handleSubmit = () => {
-    alert("submit");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(status);
+    dispatch(setStatus(!status));
   };
 
   useEffect(() => {
@@ -35,17 +39,23 @@ const App = () => {
   }
 
   return (
-    <header className="header">
-      <h1>Squires</h1>
-      <form onSubmit={handleSubmit}>
-        <select onChange={handleChange} value={mode}>
-          <option defaultValue>Pick up mode</option>
-          {options}
-        </select>
-        <button>Start</button>
-        {mode}
-      </form>
-    </header>
+    <>
+      <header className="header">
+        <h1>Squires</h1>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <select onChange={handleChange} value={mode}>
+            <option value="" defaultValue>
+              Pick mode
+            </option>
+            {options}
+          </select>
+          <button disabled={!mode}>Start</button>
+        </form>
+      </header>
+      <main>
+        {!status ? "Select Mode and start the game" : <Field mode={mode} />}
+      </main>
+    </>
   );
 };
 

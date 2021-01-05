@@ -5,6 +5,15 @@ export const setData = (data) => ({
   type: actionType.SET_DATA,
   payload: { data },
 });
+export const setMode = (mode) => ({
+  type: actionType.SET_MODE,
+  payload: { mode },
+});
+
+export const setStatus = (status) => ({
+  type: actionType.SET_STATUS,
+  payload: { status },
+});
 
 export const fetchData = () => (dispatch) =>
   api

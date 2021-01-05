@@ -4,6 +4,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import * as actionType from "src/actions/types";
 const initialState = {
   modes: null,
+  mode: "",
+  status: false,
   history: [],
 };
 
@@ -15,6 +17,25 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         modes: data,
+      };
+    }
+
+    case actionType.SET_MODE: {
+      const { mode } = payload;
+
+      return {
+        ...state,
+        mode,
+      };
+    }
+
+    case actionType.SET_STATUS: {
+      const { status } = payload;
+      console.log(status);
+
+      return {
+        ...state,
+        status,
       };
     }
 
