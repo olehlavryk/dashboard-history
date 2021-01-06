@@ -1,8 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { getMode, getStatus } from "src/selectors";
+import { Header } from "src/components/Header/Header";
 import { Cell } from "src/components/Cell/Cell";
 import "./Field.css";
 
-export const Field = ({ mode }) => {
+export const Field = () => {
+  const mode = useSelector(getMode);
+  const status = useSelector(getStatus);
+
   const renderTable = () => {
     let table = [];
 
@@ -20,10 +26,11 @@ export const Field = ({ mode }) => {
   };
 
   return (
-    <div>
+    <main className="field__wrap">
+      <Header />
       <table className="squares__table">
         <tbody>{renderTable()}</tbody>
       </table>
-    </div>
+    </main>
   );
 };

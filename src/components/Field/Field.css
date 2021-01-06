@@ -1,3 +1,7 @@
+.field__wrap {
+  margin-right: 70px;
+}
+
 .squares__table {
   border-collapse: collapse;
 }

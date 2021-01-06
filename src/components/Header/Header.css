@@ -38,7 +38,7 @@ button:disabled:hover {
 }
 
 .game__form__select {
-  min-width: 140px;
+  min-width: 180px;
   border-radius: 0;
   margin-right: 10px;
   font-size: 12px;

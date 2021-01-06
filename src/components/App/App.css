@@ -33,3 +33,7 @@
 body {
   font-family: Poppins, sans-serif;
 }
+
+#root .container {
+  display: flex;
+}
