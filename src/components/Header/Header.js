@@ -38,16 +38,29 @@ export const Header = () => {
 
   return (
     <header className="header">
-      <h1>Squires</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <select onChange={handleChange} value={mode}>
-          <option value="" defaultValue>
-            Pick mode
-          </option>
-          {options}
-        </select>
-        <button disabled={!mode}>Start</button>
-      </form>
+      <div className="container">
+        <h1>StarNavi: Test task</h1>
+        <form onSubmit={(e) => handleSubmit(e)} className="game__form">
+          <div class="select">
+            <select
+              onChange={handleChange}
+              value={mode}
+              className="game__form__select"
+            >
+              <option value="" defaultValue>
+                Pick mode
+              </option>
+              {options}
+            </select>
+          </div>
+          <button
+            className="button button__primary game__button__select"
+            disabled={!mode}
+          >
+            Start
+          </button>
+        </form>
+      </div>
     </header>
   );
 };

@@ -1,0 +1,47 @@
+/* Buttons general style */
+.button {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.2;
+  border: none;
+  border-radius: 4px;
+  transition: all, 300ms ease;
+  padding: 4px 14px;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+button:disabled {
+  color: var(--white);
+  background: var(--disabled);
+}
+
+button:disabled:hover {
+  background: var(--disabled);
+  cursor: not-allowed;
+}
+
+.button__primary {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.button__primary:hover {
+  background: var(--accent-darker);
+}
+
+.game__form {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.game__form__select {
+  min-width: 140px;
+  border-radius: 0;
+  margin-right: 10px;
+  font-size: 12px;
+  line-height: 1.2;
+  height: 25px;
+}
