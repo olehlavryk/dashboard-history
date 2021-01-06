@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchData, setMode, setStatus } from "src/actions";
 import { getModes, getMode, getStatus } from "src/selectors";
 import { Field } from "src/components/Field/Field.js";
+import { History } from "src/components/History/History";
 import "./App.css";
 
 const App = () => {
@@ -54,6 +55,7 @@ const App = () => {
       <main>
         {!status ? "Select Mode and start the game" : <Field mode={mode} />}
       </main>
+      <History />
     </>
   );
 };

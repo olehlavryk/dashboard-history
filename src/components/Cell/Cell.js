@@ -7,7 +7,6 @@ export const Cell = ({ x, y }) => {
   const dispatch = useDispatch();
   const onMouseEnterHandler = () => {
     dispatch(addToHistory(`row ${x} col ${y}`));
-    // console.log(`row ${x} col ${y}`);
   };
 
   return <td onMouseEnter={onMouseEnterHandler}></td>;
