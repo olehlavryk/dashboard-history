@@ -39,6 +39,17 @@ const reducer = (state = initialState, { type, payload }) => {
       };
     }
 
+    case actionType.ADD_TO_HISTORY: {
+      const { text } = payload;
+      console.log(text);
+      const history = [...state.history, text];
+
+      return {
+        ...state,
+        history,
+      };
+    }
+
     default: {
       return state;
     }

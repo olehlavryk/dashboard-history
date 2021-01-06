@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchData, setMode, setStatus } from "src/actions";
 import { getModes, getMode, getStatus } from "src/selectors";
@@ -18,7 +18,6 @@ const App = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(status);
     dispatch(setStatus(!status));
   };
 

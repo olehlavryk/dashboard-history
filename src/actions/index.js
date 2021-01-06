@@ -15,6 +15,11 @@ export const setStatus = (status) => ({
   payload: { status },
 });
 
+export const addToHistory = (text) => ({
+  type: actionType.ADD_TO_HISTORY,
+  payload: { text },
+});
+
 export const fetchData = () => (dispatch) =>
   api
     .getData()
@@ -23,3 +28,12 @@ export const fetchData = () => (dispatch) =>
       dispatch(setData(data));
     })
     .catch(() => dispatch({ type: actionType.FETCH_DATA_FAIL }));
+
+// export const createDesk = (name) => (dispatch) =>
+//   api
+//     .createDesk(name)
+//     .then((doc) => {
+//       dispatch({ type: actionType.CREATE_DESK_SUCCESS });
+//       dispatch(addDesk({ id: doc.id, ...doc.data() }));
+//     })
+//     .catch(() => dispatch({ type: actionType.CREATE_DESK_FAIL }));
