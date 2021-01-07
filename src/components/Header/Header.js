@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData, setMode, setStatus } from "src/actions";
+import { setMode, setStatus } from "src/actions";
 import { getModes, getMode, getStatus } from "src/selectors";
 import "./Header.css";
 
@@ -11,12 +11,6 @@ export const Header = () => {
   const status = useSelector(getStatus);
   const options = [];
 
-  useEffect(() => {
-    if (!modes) {
-      dispatch(fetchData());
-    }
-  }, [dispatch, modes]);
-
   const handleChange = (event) => {
     dispatch(setMode(event.target.value));
   };
@@ -25,8 +19,6 @@ export const Header = () => {
     event.preventDefault();
     dispatch(setStatus(!status));
   };
-
-  if (!modes) return null;
 
   for (let value of Object.entries(modes)) {
     options.push(
@@ -38,7 +30,6 @@ export const Header = () => {
 
   return (
     <header className="header">
-      <h1>StarNavi: Test task</h1>
       <form onSubmit={(e) => handleSubmit(e)} className="game__form">
         <div className="select">
           <select

@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import * as actionType from "src/actions/types";
 import { addToHistory } from "src/actions";
 
 export const Cell = ({ x, y }) => {

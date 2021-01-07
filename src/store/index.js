@@ -31,7 +31,6 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case actionType.SET_STATUS: {
       const { status } = payload;
-      console.log(status);
 
       return {
         ...state,
@@ -41,7 +40,6 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case actionType.ADD_TO_HISTORY: {
       const { text } = payload;
-      console.log(text);
       const history = [...state.history, text];
 
       return {

@@ -5,6 +5,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+ul {
+  list-style: none;
+}
 
 :root {
   --accent: #0069d9;
@@ -34,6 +37,7 @@ body {
   font-family: Poppins, sans-serif;
 }
 
-#root .container {
+.app {
   display: flex;
+  margin-top: 20px;
 }

@@ -1,5 +1,4 @@
 .field__wrap {
-  margin-right: 70px;
 }
 
 .squares__table {
@@ -15,7 +14,7 @@
 }
 
 .squares__table tbody tr td:hover {
-  background-color: blue;
+  background-color: var(--accent);
   color: #fff;
   cursor: pointer;
 }

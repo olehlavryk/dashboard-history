@@ -10,7 +10,7 @@ export const History = () => {
     return (
       <aside className="history">
         <h2>History</h2>
-        <div>No history yet!</div>
+        <small>No history yet!</small>
       </aside>
     );
   }
@@ -19,9 +19,14 @@ export const History = () => {
     <aside className="history">
       <h2>History</h2>
       <ul>
-        {history.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
+        {history
+          .slice(0)
+          .reverse()
+          .map((item, index) => (
+            <li key={index}>
+              <div className="history__alert">{item}</div>
+            </li>
+          ))}
       </ul>
     </aside>
   );
