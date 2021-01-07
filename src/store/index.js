@@ -11,6 +11,15 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case actionType.RESET_PROCESS: {
+      return {
+        ...state,
+        mode: "",
+        status: false,
+        history: [],
+      };
+    }
+
     case actionType.SET_DATA: {
       const { data } = payload;
 

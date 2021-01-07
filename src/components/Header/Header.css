@@ -32,6 +32,15 @@ button:disabled:hover {
   background: var(--accent-darker);
 }
 
+.button__danger {
+  background: var(--danger);
+  color: var(--white);
+}
+
+.button__danger:hover {
+  background: var(--danger-darker);
+}
+
 .game__form {
   display: flex;
   margin-bottom: 40px;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setMode, setStatus } from "src/actions";
+import { setMode, setStatus, resetProcess } from "src/actions";
 import { getModes, getMode, getStatus } from "src/selectors";
 import "./Header.css";
 
@@ -20,6 +20,11 @@ export const Header = () => {
     dispatch(setStatus(!status));
   };
 
+  const handleStopProcess = (event) => {
+    event.preventDefault();
+    dispatch(resetProcess());
+  };
+
   for (let value of Object.entries(modes)) {
     options.push(
       <option key={value[1]["field"]} value={value[1]["field"]}>
@@ -30,7 +35,7 @@ export const Header = () => {
 
   return (
     <header className="header">
-      <form onSubmit={(e) => handleSubmit(e)} className="game__form">
+      <form className="game__form">
         <div className="select">
           <select
             onChange={handleChange}
@@ -43,12 +48,23 @@ export const Header = () => {
             {options}
           </select>
         </div>
-        <button
-          className="button button__primary game__button__select"
-          disabled={!mode}
-        >
-          Start
-        </button>
+        {!status ? (
+          <button
+            onClick={(e) => handleSubmit(e)}
+            className="button button__primary game__button__select"
+            disabled={!mode}
+          >
+            Start
+          </button>
+        ) : (
+          <button
+            onClick={(e) => handleStopProcess(e)}
+            className="button button__danger game__button__select"
+            disabled={!mode}
+          >
+            Stop
+          </button>
+        )}
       </form>
     </header>
   );
