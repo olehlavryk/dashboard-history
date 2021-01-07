@@ -37,9 +37,17 @@ const Header = () => {
   const buildOptions = useCallback((modes) => {
     const options = [];
     for (let value of Object.entries(modes)) {
+      // prepare mode name
+      let modeName = value[0]
+        .replace(/([A-Z])/g, " $1")
+        .trim()
+        .toLowerCase();
+
+      modeName = modeName.charAt(0).toUpperCase() + modeName.slice(1);
+
       options.push(
         <option key={value[1]["field"]} value={value[1]["field"]}>
-          {value[0]}
+          {modeName}
         </option>
       );
     }
