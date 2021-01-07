@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/starnavi-test-task/static/css/main.4d35a862.chunk.css",
-    "main.js": "/starnavi-test-task/static/js/main.e1bc7dbc.chunk.js",
-    "main.js.map": "/starnavi-test-task/static/js/main.e1bc7dbc.chunk.js.map",
+    "main.js": "/starnavi-test-task/static/js/main.7ca0a956.chunk.js",
+    "main.js.map": "/starnavi-test-task/static/js/main.7ca0a956.chunk.js.map",
     "runtime-main.js": "/starnavi-test-task/static/js/runtime-main.c4330a37.js",
     "runtime-main.js.map": "/starnavi-test-task/static/js/runtime-main.c4330a37.js.map",
     "static/js/2.0dc68352.chunk.js": "/starnavi-test-task/static/js/2.0dc68352.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.c4330a37.js",
     "static/js/2.0dc68352.chunk.js",
     "static/css/main.4d35a862.chunk.css",
-    "static/js/main.e1bc7dbc.chunk.js"
+    "static/js/main.7ca0a956.chunk.js"
   ]
 }
