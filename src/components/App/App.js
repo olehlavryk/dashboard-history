@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchData } from "src/actions";
 import { getModes } from "src/selectors";
-import { Field } from "src/components/Field/Field.js";
-import { History } from "src/components/History/History";
+import Field from "src/components/Field/Field";
+import History from "src/components/History/History";
 import "./App.css";
 
 const App = () => {
@@ -31,4 +31,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default memo(App);

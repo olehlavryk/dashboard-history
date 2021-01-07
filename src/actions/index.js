@@ -1,4 +1,4 @@
-import * as actionType from "src/actions/types";
+import * as actionType from "src/types";
 import { api } from "src/api";
 
 export const setData = (data) => ({

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import { useSelector } from "react-redux";
 import { getHistory } from "src/selectors";
 import "./History.css";
 
-export const History = () => {
+const History = () => {
   const history = useSelector(getHistory);
 
   if (history.length === 0) {
@@ -31,3 +31,5 @@ export const History = () => {
     </aside>
   );
 };
+
+export default memo(History);

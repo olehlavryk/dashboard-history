@@ -1,37 +1,50 @@
-import React from "react";
+import React, { useCallback, memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setMode, setStatus, resetProcess } from "src/actions";
 import { getModes, getMode, getStatus } from "src/selectors";
 import "./Header.css";
 
-export const Header = () => {
+const Header = () => {
   const dispatch = useDispatch();
   const modes = useSelector(getModes);
   const mode = useSelector(getMode);
   const status = useSelector(getStatus);
-  const options = [];
 
-  const handleChange = (event) => {
-    dispatch(setMode(event.target.value));
-  };
+  const handleChange = useCallback(
+    (event) => {
+      dispatch(setMode(event.target.value));
+    },
+    [dispatch]
+  );
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(setStatus(!status));
-  };
+  const handleStartProcess = useCallback(
+    (event) => {
+      if (event) event.preventDefault();
 
-  const handleStopProcess = (event) => {
-    event.preventDefault();
-    dispatch(resetProcess());
-  };
+      dispatch(setStatus(!status));
+    },
+    [dispatch, status]
+  );
 
-  for (let value of Object.entries(modes)) {
-    options.push(
-      <option key={value[1]["field"]} value={value[1]["field"]}>
-        {value[0]}
-      </option>
-    );
-  }
+  const handleStopProcess = useCallback(
+    (event) => {
+      if (event) event.preventDefault();
+      dispatch(resetProcess());
+    },
+    [dispatch]
+  );
+
+  const buildOptions = useCallback((modes) => {
+    const options = [];
+    for (let value of Object.entries(modes)) {
+      options.push(
+        <option key={value[1]["field"]} value={value[1]["field"]}>
+          {value[0]}
+        </option>
+      );
+    }
+    return options;
+  }, []);
 
   return (
     <header className="header">
@@ -42,15 +55,15 @@ export const Header = () => {
             value={mode}
             className="game__form__select"
           >
-            <option value="" defaultValue>
+            <option value="" defaultValue disabled>
               Pick mode
             </option>
-            {options}
+            {buildOptions(modes)}
           </select>
         </div>
         {!status ? (
           <button
-            onClick={(e) => handleSubmit(e)}
+            onClick={handleStartProcess}
             className="button button__primary game__button__select"
             disabled={!mode}
           >
@@ -58,7 +71,7 @@ export const Header = () => {
           </button>
         ) : (
           <button
-            onClick={(e) => handleStopProcess(e)}
+            onClick={handleStopProcess}
             className="button button__danger game__button__select"
             disabled={!mode}
           >
@@ -69,3 +82,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default memo(Header);

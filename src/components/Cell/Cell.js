@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useCallback, memo } from "react";
 import { useDispatch } from "react-redux";
 import { addToHistory } from "src/actions";
 
-export const Cell = ({ x, y }) => {
+const Cell = ({ x, y }) => {
   const dispatch = useDispatch();
-  const onMouseEnterHandler = () => {
+
+  const onMouseEnterHandler = useCallback(() => {
     dispatch(addToHistory(`row ${x} col ${y}`));
-  };
+  }, [dispatch]);
 
   return <td onMouseEnter={onMouseEnterHandler}></td>;
 };
+
+export default memo(Cell);

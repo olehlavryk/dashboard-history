@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useCallback, memo } from "react";
 import { useSelector } from "react-redux";
 import { getMode, getStatus } from "src/selectors";
-import { Header } from "src/components/Header/Header";
-import { Cell } from "src/components/Cell/Cell";
+import Header from "src/components/Header/Header";
+import Cell from "src/components/Cell/Cell";
 import "./Field.css";
 
-export const Field = () => {
+const Field = () => {
   const mode = useSelector(getMode);
   const status = useSelector(getStatus);
 
-  const renderTable = (mode) => {
+  const renderTable = useCallback((mode) => {
     let table = [];
 
     if (mode) {
@@ -26,7 +26,7 @@ export const Field = () => {
     }
 
     return table;
-  };
+  }, []);
 
   return (
     <main className="field__wrap">
@@ -40,3 +40,5 @@ export const Field = () => {
     </main>
   );
 };
+
+export default memo(Field);
