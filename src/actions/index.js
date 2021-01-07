@@ -19,6 +19,7 @@ export const addToHistory = (text) => ({
   type: actionType.ADD_TO_HISTORY,
   payload: { text },
 });
+
 export const resetProcess = () => ({
   type: actionType.RESET_PROCESS,
   payload: {},
