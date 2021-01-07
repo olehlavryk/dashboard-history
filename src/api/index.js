@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://demo1030918.mockable.io/";
+const url = "https://demo1030918.mockable.io/";
 
 const getData = () => {
   return axios.get(url).then((response) => {
