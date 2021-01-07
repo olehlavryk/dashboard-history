@@ -18,7 +18,7 @@ export const History = () => {
   return (
     <aside className="history">
       <h2>History</h2>
-      <ul>
+      <ul className="history__list">
         {history
           .slice(0)
           .reverse()
