@@ -7,7 +7,7 @@ const Cell = ({ x, y }) => {
 
   const onMouseEnterHandler = useCallback(() => {
     dispatch(addToHistory(`row ${x} col ${y}`));
-  }, [dispatch]);
+  }, [dispatch, x, y]);
 
   return <td onMouseEnter={onMouseEnterHandler}></td>;
 };

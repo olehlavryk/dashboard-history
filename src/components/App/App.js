@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>StarNavi test task</h1>
+      <h1>Dashboard history</h1>
       <div className="app">
         <Field />
         <History />

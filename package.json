@@ -1,6 +1,6 @@
 {
-  "homepage": "http://olehlavryk.github.io/starnavi-test-task",
-  "name": "starnavi-test",
+  "homepage": "https://olehlavryk.github.io/dashboard-history",
+  "name": "dashboard-history",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
